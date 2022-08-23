@@ -8,3 +8,12 @@ app.use(express.json());
 app.get('/',(req, res) => {
     res.send('Atendida a requisição GET!!');
 });
+
+app.listen(3001, () => {
+    console.log("Rodando em http://localhost:3001")
+})
+
+
+// rotas para animais
+const animais = require('./animais');
+animais(app)
