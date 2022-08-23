@@ -1,7 +1,10 @@
-module.exports = (app) => {
-    // colocar aqui as rotas paa requisicoes de animais
-    app.get('/animais', (req, res) => {
-        res.json({"res":"ok"})
-    });
-}
 
+module.exports = (app) => {
+app.get('/animais', (req, res) => {
+    //res.send('retornar animais');
+    db.collection('animais').find().toArray((err, results)=>{
+    if (err) throw err;
+    res.json(results);
+    });
+   })
+};
