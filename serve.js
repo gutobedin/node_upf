@@ -9,6 +9,13 @@ app.get('/',(req, res) => {
     res.send('Atendida a requisição GET!!');
 });
 
+app.post('/animais', (req, res, next) => {
+    db.collection('animais').insertOne(req.body, (err, result) => {
+        if (err) throw err;
+        res.json({success: "Incluído com sucesso."});
+    })
+   })
+
 app.listen(3001, () => {
     console.log("Rodando em http://localhost:3001")
 })
